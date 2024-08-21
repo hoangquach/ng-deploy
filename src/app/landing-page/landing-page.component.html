@@ -4,20 +4,20 @@
     <div class="alert alert-success" role="alert" *ngIf="greenNotificationStatus">
       {{greenMessage}}
       <div>
-        <img src="../../assets/music/{{dobPic}}" alt="Description of the image" class="my-image" width="229px" height="238px">
+        <img src="assets/music/{{dobPic}}" alt="Description of the image" class="my-image" width="229px" height="238px">
       </div>
     </div>
     <div class="alert alert-danger" role="alert" *ngIf="redNotificationStatus">
       {{redMessage}}
       <div>
-        <img src="../../assets/music/{{dobPic}}" alt="Description of the image" class="my-image">
+        <img src="assets/music/{{dobPic}}" alt="Description of the image" class="my-image">
       </div>
     </div>
 
 <!--first question-->
 <div *ngIf="!redNotificationStatus && !awardStatus">
     <div class="col">
-      <img src="../../assets/music/mochi-say-hi.gif" alt="Description of the image" class="my-image">
+      <img src="assets/music/mochi-say-hi.gif" alt="Description of the image" class="my-image">
 
     </div>
     <div class="col" >
@@ -53,7 +53,7 @@
   <div *ngIf="awardStatus">
       <h3>Alright, now we are going to reveal the award/s don't we?</h3>
       <h3>Missy, can you help me to pick the following buttons:</h3>
-      <img src="../../assets/music/{{this.pic}}" alt="Description of the image" class="my-image" width="229px" height="238px">
+      <img src="assets/music/{{this.pic}}" alt="Description of the image" class="my-image" width="229px" height="238px">
 
       <div class="row">
         <div class="col">
