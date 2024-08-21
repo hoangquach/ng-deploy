@@ -41,9 +41,9 @@
 </div>   
 <!--hint question--> 
 <div *ngIf="redNotificationStatus">
-  <h3>When is my birthday?</h3>
+  <h3>When did we start dating?</h3>
   <p>*you better got it right</p>
-  <label for="birthday">Birthday:</label>
+  <label for="birthday">Date:</label>
   <input class="form-control" type="date" id="birthday" name="birthday" [(ngModel)]="dob">
   <button type="button" class="btn btn-primary" (click)="verifymydob()">Submit? I am sure</button>
 </div>

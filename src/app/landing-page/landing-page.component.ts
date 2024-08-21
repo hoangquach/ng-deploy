@@ -11,6 +11,8 @@ export class LandingPageComponent implements AfterViewInit {
 
   constructor(private el: ElementRef, private renderer: Renderer2,private audioService: AudioService, private route:Router) {}
 
+  //day together
+  together = 171;
 
   //init variables
   header ='WOW LOOK AT US!\nWe made it here baby.\n Alright lets get started by answering this question below';
@@ -91,11 +93,11 @@ export class LandingPageComponent implements AfterViewInit {
 
   //function start here
   verifyDay(){
-    if(this.sliderNum==169){
+    if(this.sliderNum==this.together){
       //reset the other notification 
       this.redNotificationStatus=false
       this.greenNotificationStatus = true;//show notification
-      this.greenMessage="OMG, GOOD JOB BABY! YOU ARE SO GOOD AT MATH. ILY<3"
+      this.greenMessage="OMG, GOOD JOB BABY! YOU ARE SO GOOD AT MATH. WOOHOO<3"
       this.awardStatus=true;
       this.dobPic="mochi-clap.gif"
 
@@ -109,11 +111,10 @@ export class LandingPageComponent implements AfterViewInit {
 
   }
 
-  //verify my dob
+  //verify first anni
   verifymydob(){
-    if(this.dob=="2002-04-09")
+    if(this.dob=="2024-03-01")
     {
-      //yes it is my birthday
       //disable the red notification
       //remove the calendar picker
       this.redNotificationStatus=false;
