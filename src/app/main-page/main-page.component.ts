@@ -7,9 +7,10 @@ import { AfterViewInit, ElementRef, ViewChild, Renderer2  } from '@angular/core'
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent implements AfterViewInit {
+  years:number =0
   date: any;
   now: any;
-  targetDate: any = new Date(2024, 2, 1);// Mar 1st 2024
+  targetDate: any = new Date(2024, 2, 1);// Mar 1st 2024 (2024,2,1)
   targetTime: any = this.targetDate.getTime();
   difference!: number;
   months: Array<string> = [
@@ -29,7 +30,7 @@ export class MainPageComponent implements AfterViewInit {
   currentTime: any = `${
     this.months[this.targetDate.getMonth()]
   } ${this.targetDate.getDate()}, ${this.targetDate.getFullYear()}`;
-
+  @ViewChild('years', { static: true }) yearsElement!: ElementRef;
   @ViewChild('days', { static: true }) days!: ElementRef;
   @ViewChild('hours', { static: true }) hours!: ElementRef;
   @ViewChild('minutes', { static: true }) minutes!: ElementRef;
@@ -40,14 +41,15 @@ export class MainPageComponent implements AfterViewInit {
   ngAfterViewInit() {
     setInterval(() => {
       this.tickTock();
-      // this.difference = this.targetTime - this.now;
-      // this.difference = this.difference / (1000 * 60 * 60 * 24);
-      this.difference = this.now - this.targetTime;
-      this.difference = this.difference / (1000 * 60 * 60 * 24);
-
-      !isNaN(this.days.nativeElement.innerText)
-        ? (this.days.nativeElement.innerText = Math.floor(this.difference))
-        : (this.days.nativeElement.innerHTML = `<img src="https://i.gifer.com/VAyR.gif" />`);
+      this.difference = Math.floor((this.now - this.targetTime) / (1000 * 60 * 60 * 24));
+  
+      // Calculate years and remaining days
+      this.years = Math.floor(this.difference / 365);
+      let remainingDays = this.difference % 365; // Get leftover days after full years
+  
+      // Update UI elements
+      this.yearsElement.nativeElement.innerText = this.years > 0 ? `${this.years}` : '';
+      this.days.nativeElement.innerText = remainingDays; // Ensure only remaining days are set
     }, 1000);
 
     const limit = 100; // Max number of stars
@@ -64,9 +66,6 @@ export class MainPageComponent implements AfterViewInit {
     this.date = new Date();
     this.now = this.date.getTime();
     this.days.nativeElement.innerText = Math.floor(this.difference);
-    // this.hours.nativeElement.innerText = 23 - this.date.getHours();
-    // this.minutes.nativeElement.innerText = 60 - this.date.getMinutes();
-    // this.seconds.nativeElement.innerText = 60 - this.date.getSeconds();
     this.hours.nativeElement.innerText = this.date.getHours();
     this.minutes.nativeElement.innerText =  this.date.getMinutes();
     this.seconds.nativeElement.innerText =  this.date.getSeconds();

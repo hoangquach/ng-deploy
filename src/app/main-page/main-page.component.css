@@ -1,52 +1,55 @@
 .count-down-timer {
-    box-shadow: 2px 6px 9px 2px rgb(0 0 0 / 20%);
-    text-align: center;
-    background-color: #E298E7;
-    max-width: 600px;
-    margin: 20px auto;
-    color: #fdfdfd;
-    border-radius: 6px;
-    padding: 10px;
-    font-family: sans-serif;
-  
-    > p {
-      margin: 5px 0 15px 0;
+  box-shadow: 2px 6px 9px 4px rgb(0 0 0 / 20%);
+  text-align: center;
+  background-color: #E298E7;
+  max-width: 600px;
+  margin: 20px auto;
+  color: #fdfdfd;
+  border-radius: 6px;
+  padding: 15px;
+  font-family: sans-serif;
+
+  > p {
+    margin: 5px 0 15px 0;
+  }
+
+  .wrapper {
+    .description,
+    .times {
+      display: grid;
+      grid-template-columns: repeat(5, calc(20% - 8px)); /* Adjusted for 5 columns */
+      grid-column-gap: 10px;
     }
-  
-    .wrapper {
-      .description,
-      .times {
-        display: grid;
-        grid-template-columns: repeat(4, calc(25% - 8px));
-        grid-column-gap: 10px;
+
+    .description {
+      > p {
+        margin: 0;
+        font: normal 14px sans-serif;
       }
-  
-      .description {
-        > p {
-          margin: 0;
-          font: normal 14px sans-serif;
-        }
-      }
-  
-      .times {
-        p {
-          letter-spacing: -5px;
-          position: relative;
-          margin: 0;
-          font: normal 40px courier, sans-serif;
-          ::ng-deep img {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 30px;
-            display: block;
-            height: 30px;
-          }
+    }
+
+    .times {
+      p {
+        letter-spacing: -2px; /* Adjusted for better spacing */
+        position: relative;
+        margin: 0;
+        font: normal 40px courier, sans-serif;
+        min-width: 60px; /* Ensures enough space for larger numbers */
+        
+        ::ng-deep img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 30px;
+          display: block;
+          height: 30px;
         }
       }
     }
   }
+}
+
   
   @media screen and (max-width: 430px) {
     .count-down-timer {
